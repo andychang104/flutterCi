@@ -35,13 +35,17 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter build ios --release --no-codesign
-#      - run: flutter build apk
-#      - run: flutter build appbundle
-#      - uses: actions/upload-artifact@v1
-#        with:
-#          name: release-apk
-#          path: build/app/outputs/flutter-apk/app-release.apk
-#      - uses: actions/upload-artifact@v1
-#        with:
-#          name: release-apk
-#          path: build/app/outputs/bundle/release/app-release.aab
+      - run: flutter build apk
+      - run: flutter build appbundle
+      - uses: actions/upload-artifact@v1
+        with:
+          name: flutterRelease
+          path: build/app/outputs/flutter-apk/app-release.apk
+      - uses: actions/upload-artifact@v1
+        with:
+          name: flutterRelease
+          path: build/app/outputs/bundle/release/app-release.aab
+      - uses: actions/upload-artifact@v1
+        with:
+          name: flutterRelease
+          path: build/ios/iphoneos/Runner.app
