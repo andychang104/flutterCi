@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -34,13 +34,14 @@ jobs:
           flutter-version: '3.7.3'
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build apk
-      - run: flutter build appbundle
-      - uses: actions/upload-artifact@v1
-        with:
-          name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
-      - uses: actions/upload-artifact@v1
-        with:
-          name: release-apk
-          path: build/app/outputs/bundle/release/app-release.aab
+      - run: flutter build ios --release --no-codesign
+#      - run: flutter build apk
+#      - run: flutter build appbundle
+#      - uses: actions/upload-artifact@v1
+#        with:
+#          name: release-apk
+#          path: build/app/outputs/flutter-apk/app-release.apk
+#      - uses: actions/upload-artifact@v1
+#        with:
+#          name: release-apk
+#          path: build/app/outputs/bundle/release/app-release.aab
