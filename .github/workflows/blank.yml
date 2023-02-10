@@ -39,13 +39,13 @@ jobs:
       - run: flutter build appbundle
       - uses: actions/upload-artifact@v1
         with:
-          name: flutterRelease
+          name: Android
           path: build/app/outputs/flutter-apk/app-release.apk
       - uses: actions/upload-artifact@v1
         with:
-          name: flutterRelease
+          name: Android
           path: build/app/outputs/bundle/release/app-release.aab
       - uses: actions/upload-artifact@v1
         with:
-          name: flutterRelease
+          name: Payload
           path: build/ios/iphoneos/Runner.app
